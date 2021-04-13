@@ -3,7 +3,7 @@
 	url = https://github.com/baraveh/qemu
 [submodule "vagrant_demo"]
 	path = vagrant_demo
-	url = https://github.com/baraveh/vagrant_demo
+	url = git@github.com:idanyani/vagrant_demo.git
 [submodule "E1000_Virtio_test_env"]
 	path = E1000_Virtio_test_env
 	url = https://github.com/baraveh/E1000_Virtio_test_env
