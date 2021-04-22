@@ -7,3 +7,6 @@
 [submodule "E1000_Virtio_test_env"]
 	path = E1000_Virtio_test_env
 	url = https://github.com/baraveh/E1000_Virtio_test_env
+[submodule "linux"]
+	path = linux
+	url = git@github.com:baraveh/linux.git
