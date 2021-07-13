@@ -1,0 +1,13 @@
+Starting test TestCmpThroughput
+Run command (checked): ssh -o "StrictHostKeyChecking no" root@127.0.0.1 'uname -r'
+Command output: b'5.4.0-73-generic\n'
+Setup VM: virtio
+Run command: sudo killall netserver
+Run command: sudo sudo taskset -c 3 nice -n 0 netserver
+Run command (checked): sudo modprobe kvm-intel
+Run command (checked): sudo tunctl -u bar.raveh
+Command output: b"Set 'tap0' persistent and owned by uid 54613\n"
+Run command (checked): sudo  ip link set tap0 up
+Run command (checked): sudo ip a a 10.10.0.44/24 dev tap0
+Running VM: virtio
+Run command (async): numactl -C 2 -m 0 ../qemu/build/qemu-system-x86_64 -enable-kvm  -k en-us -m 8192 -kernel ../vms/vmlinuz -initrd ../vms/initrd.img -append 'BOOT_IMAGE=/vmlinuz-5.4.0-73-generic root=/dev/mapper/ubuntu--vg-ubuntu--lv ro maybe-ubiquity '  -drive file='../vms/ubuntu-20.img',if=none,id=drive-virtio-disk0,format=qcow2 -device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1 -netdev tap,ifname=tap0,id=net0,script=no -object iothread,id=iothread0 -device virtio-net-pci,netdev=net0,mac=52:54:00:a0:e5:1c, -vnc :10 -pidfile /tmp/tmpbzdkmyhw -monitor tcp:127.0.0.1:1234,server,nowait,nodelay -qmp tcp:127.0.0.1:1235,server,nowait,nodelay 

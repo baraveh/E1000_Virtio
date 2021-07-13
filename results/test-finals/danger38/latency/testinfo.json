@@ -1,0 +1,29 @@
+{
+    "Host": {
+        "hostname": "danger38",
+        "kernel_version": "5.4.0-73-generic\n"
+    },
+    "Test": {
+        "name": "TestCmpLatency",
+        "runtime": 15
+    },
+    "VMs": {
+        "virtio": {
+            "cpu_pin": "2",
+            "disk_path": "../vms/ubuntu-20.img",
+            "e1000_options": {},
+            "enabled": true,
+            "kernel_cmd": "BOOT_IMAGE=/vmlinuz-5.4.0-73-generic root=/dev/mapper/ubuntu--vg-ubuntu--lv ro maybe-ubiquity",
+            "large_queue": false,
+            "mem": "8192",
+            "nic_type": "virtio-net-pci",
+            "nice": [
+                false,
+                1
+            ],
+            "qemu_file": "../qemu/build/qemu-system-x86_64",
+            "queue_size": 0,
+            "static_itr": false
+        }
+    }
+}

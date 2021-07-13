@@ -1,1 +1,0 @@
-udo qemu-system-x86_64 -cpu host -enable-kvm -m 4096 -hda ubuntu.img -cdrom ubuntu-20.04.2.0-desktop-amd64.iso -boot d
